@@ -17,7 +17,7 @@
 --15 Separate Entity and Map loading
 --16 Create grass map from ff art
 --17 Place entities on map from ff art
---18 START BACKING UP INTO GITHUB!!
+--18x START BACKING UP INTO GITHUB!!
 
 require 'map-functions'
 require 'char-functions'

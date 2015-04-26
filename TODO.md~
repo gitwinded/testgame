@@ -21,5 +21,3 @@
 - --- [ ] Add input.lua which has a function to intialize the variable, call from love.load()
 - --- [ ] Create insert function to table for inputs, call from char-functions.lua for movement
 - [ ] add pcall() functions into char-functions for out of bounds
-- [ ] learn how to use MiddleClass and Stateful
-- [ ] use Stateful to create GameStates

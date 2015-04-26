@@ -1,6 +1,7 @@
 --char-functions.lua
 
 require 'map-functions'
+--require 'input'
 
 local tileW, tileH, charTileset, charQuads, charQuadInfo
 local charGridX, charGridY = 2, 2
@@ -30,24 +31,17 @@ function newChar(tileWidth, tileHeight, tilesetPath, charQuadInfoIn)
 	end
 end
 
---function moveChar()
---	if love.keyboard.isDown('s') then
---		charGridY = charGridY + tileH
+--table.insert(tableKeypressed, function (key, isrepeat)
+--	if key == 's' then
+--		if canMove(charGridX, charGridY, 'down') then
+--			charGridY = charGridY + 1 end
 --		charFacing = 'forward'
---	elseif love.keyboard.isDown('w') then
---		charGridY = charGridY - tileH
---		charFacing = 'backward'
---	elseif love.keyboard.isDown('a') then
---		charGridX = charGridX - tileW
---		charFacing = 'left'
---	elseif love.keyboard.isDown('d') then
---		charGridX = charGridX + tileW
---		charFacing = 'right'
 --	end
---end
+--end)
 
 function moveChar()
-	function love.keypressed(key)
+	love.keyboard.setKeyRepeat(true)
+	function love.keypressed(key, isrepeat)
 		if key == 'escape' then
 			love.event.quit()
 		elseif key == 's' then

@@ -2,6 +2,7 @@
 
 require 'map-functions'
 require 'char-functions'
+--require 'maps/ff-farmhouse'
 
 function love.load()
 	loadMap('maps/ff-farmhouse.lua')

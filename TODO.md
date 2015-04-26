@@ -14,7 +14,7 @@
 - [x] Set Name for Game Window
 - [ ] Separate Entity and Map loading
 - [x] Create grass map from ff art
-- [ ] Fix window mapping to accept 16 pixel map and character art
+- [x] Fix window mapping to accept 16 pixel map and character art
 - [ ] Place entities on map from ff art
 - [x] Back up into Github
 - [ ] Add an input.lua module that can be called from each function block
@@ -23,3 +23,4 @@
 - [ ] add pcall() functions into char-functions for out of bounds
 - [ ] learn how to use MiddleClass and Stateful
 - [ ] use Stateful to create GameStates
+- [ ] implement a toWorld function that blows everything up

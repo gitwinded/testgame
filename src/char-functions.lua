@@ -6,7 +6,7 @@ require 'map-functions'
 local tileW, tileH, charTileset, charQuads, charQuadInfo
 local charGridX, charGridY = 2, 2
 local charActX, charActY = 200, 200
-local charFacing = 'forward'
+local charFacing = 'forward0'
 local charMoveSpeed = 10
 charPosMessage = 'Example'
 
@@ -31,14 +31,6 @@ function newChar(tileWidth, tileHeight, tilesetPath, charQuadInfoIn)
 	end
 end
 
---table.insert(tableKeypressed, function (key, isrepeat)
---	if key == 's' then
---		if canMove(charGridX, charGridY, 'down') then
---			charGridY = charGridY + 1 end
---		charFacing = 'forward'
---	end
---end)
-
 function moveChar()
 	love.keyboard.setKeyRepeat(true)
 	function love.keypressed(key, isrepeat)
@@ -47,23 +39,26 @@ function moveChar()
 		elseif key == 's' then
 			if canMove(charGridX, charGridY, 'down') then
 				charGridY = charGridY + 1 end
-			charFacing = 'forward'
+			charFacing = 'forward0'
 		elseif key == 'w' then
 			if canMove(charGridX, charGridY, 'up') then
 				charGridY = charGridY - 1 end
-			charFacing = 'backward'
+			charFacing = 'backward0'
 		elseif key == 'a' then
 			if canMove(charGridX, charGridY, 'left') then
 				charGridX = charGridX - 1 end
-			charFacing = 'left'
+			charFacing = 'left0'
 		elseif key == 'd' then
 			if canMove(charGridX, charGridY, 'right') then
 				charGridX = charGridX + 1 end
-			charFacing = 'right'
+			charFacing = 'right0'
 		end
 	end
 	charPosMessage = 'x: '..charGridX..', y: '..charGridY
 end
+
+--moveChar - need 2 variables, direction facing, starting to move, gotten to the new tile. It should take 1 tile movement to go one full rotation - 0(standing) to 1(leftfoot) to 0(standing) to 2(rightfoot) and landing at the new tile at 0(standing)
+--each tile move should have 4 different parts - 1,0,2,0.
 
 function updateChar(timeInt)
 	charActY = charActY - (charActY - charGridY * tileH) * charMoveSpeed * timeInt
@@ -80,6 +75,10 @@ function getCharInfo(facing, column)
 	return num
 end
 
-function drawChar()
-	love.graphics.draw(tileset, charQuads[charFacing], charActX+(getCharInfo(charFacing, 4))*tileW, charActY+(getCharInfo(charFacing, 5))*tileH, 0, getCharInfo(charFacing, 6), getCharInfo(charFacing, 7))
+function drawChar() -- the locals below are only used to clean up the draw() command. They add nothing to the actual block.
+	local drawPosX = charActX+(getCharInfo(charFacing, 4))*tileW
+	local drawPosY = charActY+(getCharInfo(charFacing, 5))*tileH
+	local drawScaleX = getCharInfo(charFacing, 6)
+	local drawScaleY = getCharInfo(charFacing, 7)
+	love.graphics.draw(tileset, charQuads[charFacing], drawPosX, drawPosY, 0, drawScaleX, drawScaleY)
 end

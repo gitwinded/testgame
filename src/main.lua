@@ -12,7 +12,7 @@ end
 
 function love.update(dt)
 	moveChar()
-	updateChar(dt)
+	updateCharPos(dt)
 end
 
 function love.draw()

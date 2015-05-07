@@ -19,7 +19,7 @@ function love.draw()
 	love.window.setTitle("Rogers' Test Game!")
 	drawMap()
 	drawChar()
-	love.graphics.print(charPosMessage)
+	love.graphics.print(charPosMessage, 240, 0)
 end
 
 --function love.keypressed(key) --Need to us keyboard.isDown for moveChar first

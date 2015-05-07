@@ -8,7 +8,9 @@
 - [x] Reflect left image into right in code
 - [ ] turn all character related variables into tables
 - [ ] create character Class using MiddleClass
-- [ ] Use multiple frames to make character walk
+- [x] Use multiple frames to make character walk
+- [ ] Make character movement smooth
+- [ ] Match character walking frames up to tile movement
 - [x] Make map collidable function
 - [x] Make entity collidable function
 - [x] Set Name for Game Window
@@ -18,8 +20,8 @@
 - [ ] Place entities on map from ff art
 - [x] Back up into Github
 - [ ] Add an input.lua module that can be called from each function block
-- --- [ ] Add input.lua which has a function to intialize the variable, call from love.load()
-- --- [ ] Create insert function to table for inputs, call from char-functions.lua for movement
+-  [ ] Add input.lua which has a function to intialize the variable, call from love.load()
+-  [ ] Create insert function to table for inputs, call from char-functions.lua for movement
 - [ ] add pcall() functions into char-functions for out of bounds
 - [ ] learn how to use MiddleClass and Stateful
 - [ ] use Stateful to create GameStates
